@@ -1,5 +1,5 @@
 <template>
-    <div class="top-bar  animated" :class="slide">
+    <div class="top-bar  animated" :class="slide" @animationend="_close">
         <div class="top-bar-box clearfix" >
             <template v-if="!commentShow">
             <div class="fl bar-user-box">
@@ -16,7 +16,7 @@
             </div>
             <div class="fr btn-box">
                 <button class="dtb-btn time-up-btn" @click="commentShow = ! commentShow">Comment</button>
-                <button class="dtb-btn close-btn ml5">Close</button>
+                <button class="dtb-btn close-btn ml5" @click="close">Close</button>
             </div>
             </template>
             <div class="evaluate-btn-box clearfix" v-else>
@@ -55,6 +55,16 @@
       setTimeout(() => {
         this.answerStatu = `Select [${this.studentAnswer}]`
       }, 1500)
+    },
+    methods: {
+      close () {
+        this.slide = 'slideOutUp'
+      },
+      _close () {
+        if (this.slide === 'slideOutUp') {
+          this.$electron.remote.getCurrentWindow().close()
+        }
+      }
     }
   }
 </script>

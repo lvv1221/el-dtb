@@ -23,8 +23,8 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    width: 520, // center:520,top:1000
-    height: 340, // center:340,top:66
+    width: 920, // center:520,top:1000,main:920
+    height: 610, // center:340,top:66, main:610
     useContentSize: true,
     resizable: false,
     // transparent: true,
@@ -38,6 +38,7 @@ function createWindow () {
   mainWindow.loadURL(winURL)
   mainWindow.once('ready-to-show', () => {
     mainWindow.show()
+    mainWindow.openDevTools()
   })
 
   mainWindow.on('closed', () => {
