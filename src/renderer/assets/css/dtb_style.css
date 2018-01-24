@@ -692,6 +692,14 @@ a.close {
     background: -webkit-linear-gradient(top, #6ad9ef 0%,#3c8eff 100%);
     background: linear-gradient(to bottom, #6ad9ef 0%,#3c8eff 100%);
 }
+.group-situation .success {
+    background: -webkit-linear-gradient(top, #41cdda 0%,#4ff2b9 100%);
+    background: linear-gradient(to bottom, #41cdda 0%,#4ff2b9 100%);
+}
+.group-situation .error {
+    background: -webkit-linear-gradient(top, #ff4e6f 0%,#ffb58d 100%);
+    background: linear-gradient(to bottom, #ff4e6f 0%,#ffb58d 100%);
+}
 .report-td .name{
     line-height: 24px;
     font-size: 14px;
@@ -961,3 +969,25 @@ a.close {
 .pop-btn-new{
     padding: 25px 0;
 }
+.perfect_scroll{
+    position: relative;
+    overflow-y: scroll;
+}
+/*滚动条样式*/
+/*--滚动条样式自定义开始--*/
+::-webkit-scrollbar{
+    width:10px;
+    background:rgba(0,0,0, 0.03);
+    border-radius:4px;
+    border:1px solid #fff;
+}
+::-webkit-scrollbar-thumb{
+    border-radius:4px;
+    background:#dce6f3 !important;
+    border:1px solid #fff;
+}
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active{
+    background:rgba(0,0,0, 0.3);
+}
+/*--滚动条样式自定义结束--*/

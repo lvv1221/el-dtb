@@ -23,13 +23,13 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    width: 920, // center:520,top:1000,main:920
-    height: 610, // center:340,top:66, main:610
+    width: 1000, // center:520,top:1000,main:920,dialog:460,screen:size.width
+    height: 66, // center:340,top:66, main:610,dialog:355,screen:size.height
     useContentSize: true,
     resizable: false,
     // transparent: true,
-    // x: xOffSet, // top
-    // y: 0, // top
+    x: xOffSet, // top
+    y: 0, // top
     show: false,
     center: true,
     frame: false

@@ -2,13 +2,12 @@
     <div class="top-bar animated" :class="slide" @animationend="_close">
         <div class="top-bar-box clearfix">
             <div class="fl date-box">{{time}}</div>
-            <div class="fl answer-box clearfix btn-cls" @click="openDetails">
-                <p class="fl answer"><span>Answer</span><span class="ml20">{{answerNum}}</span></p>
-                <p class="fl unanswer"><span>Unanswer</span><span class="ml20">{{unanswerNum}}</span></p>
+            <div class="fl answer-ing clearfix">
+                <p>30 students  connecting……</p>
             </div>
             <div class="fr btn-box">
-                <button class="dtb-btn time-up-btn" @click="stopTime">Time up</button>
-                <button class="dtb-btn close-btn ml5" @click="close">Close</button>
+                <button class="dtb-btn time-up-btn">Start</button>
+                <button class="dtb-btn close-btn ml5">Close</button>
             </div>
         </div>
     </div>
@@ -16,13 +15,13 @@
 
 <script>
   export default {
-    name: 'class-top-bar',
+    name: 'live-top-bar',
     data () {
       return {
         slide: 'slideInDown',
+        finishNum: '10',
+        unfinishNum: '30',
         time: '未开始',
-        answerNum: 25,
-        unanswerNum: 30,
         tool: '',
         m: 0,
         s: 0
@@ -33,15 +32,13 @@
     },
     methods: {
       close () {
+        this.stopTime()
         this.slide = 'slideOutUp'
       },
       _close () {
         if (this.slide === 'slideOutUp') {
           this.$electron.remote.getCurrentWindow().close()
         }
-      },
-      openDetails () {
-        console.log('details')
       },
       startTime () {
         let m = 0
@@ -66,7 +63,7 @@
 </script>
 
 <style lang="stylus" scoped>
-  .btn-cls
-    cursor pointer
+    .btn-cls
+        cursor pointer
 
 </style>

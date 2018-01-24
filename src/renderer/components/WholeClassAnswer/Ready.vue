@@ -4,7 +4,7 @@
             <div class="class-icon">
                 <img src="@/assets/images/class-icon.png" width="100%">
             </div>
-            <p>The whole class</p>
+            <p>{{pageName}}</p>
         </div>
         <label class="state-txt">Ready</label>
     </div>
@@ -13,7 +13,13 @@
 <script>
   export default {
     name: 'ready',
+    data () {
+      return {
+        pageName: 'The whole class'
+      }
+    },
     mounted () {
+      this.pageName = 'Answer Race'
       setTimeout(() => {
         // this.$electron.remote.getCurrentWindow().close()
       }, 3000)

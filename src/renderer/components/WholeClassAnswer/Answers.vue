@@ -15,7 +15,8 @@
                     <div class="option-status">
                         <div class="flex flex-mid op-status-item clearfix" @click="" v-for="item in answersList" :key="item.option">
                             <span>{{item.option}}</span>
-                            <div class="eui-progress">
+                            <div class="eui-progress" :class="{'eui-progress-success': answer === item.option,
+                            'eui-progress-error': answer !== item.option && answer !== ''}">
                                 <div class="eui-progress-outer">
                                     <div class="eui-progress-inner">
                                         <div class="eui-progress-bg" :style="{width: item.rate + '%'}"></div>
@@ -28,7 +29,7 @@
                 </div>
             </div>
             <div class="btn-box pop-btn tc">
-                <button class="dtb-btn time-up-btn">Set answers</button>
+                <button class="dtb-btn time-up-btn" @click="setAnswers">Set answers</button>
                 <button class="dtb-btn close-btn ml5">Close</button>
             </div>
             <div class="fix-btn fix-btn-left">
@@ -75,7 +76,8 @@
         }],
         participationNum: 39,
         studentsNum: 40,
-        participationRate: 0
+        participationRate: 0,
+        answer: ''
       }
     },
     created () {
@@ -93,6 +95,9 @@
           this.$set(option, 'rate', rate)
         }
         // console.log(JSON.stringify(this.answersList))
+      },
+      setAnswers () {
+        console.log('open')
       }
     }
   }
